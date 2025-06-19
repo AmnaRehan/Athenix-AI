@@ -1,5 +1,7 @@
 <<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Athenix-AI
+AI model designed to help users create personalized workout routines and diet plans.
 
 ## Getting Started
 
@@ -36,6 +38,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 =======
-# Athenix-AI
-AI model designed to help users create personalized workout routines and diet plans.
->>>>>>> 0efd1eeb3342d5b91a089a6140dc8af6a43995c6
+

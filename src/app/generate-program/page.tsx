@@ -22,7 +22,7 @@ const GenerateProgramPage = () => {
   // SOLUTION to get rid of "Meeting has ended" error
   useEffect(() => {
     const originalError = console.error;
-    // override console.error to ignore "Meeting has ended" errors
+    
     console.error = function (msg, ...args) {
       if (
         msg &&
@@ -30,14 +30,12 @@ const GenerateProgramPage = () => {
           (args[0] && args[0].toString().includes("Meeting has ended")))
       ) {
         console.log("Ignoring known error: Meeting has ended");
-        return; // don't pass to original handler
+        return; 
       }
 
-      // pass all other errors to the original handler
       return originalError.call(console, msg, ...args);
     };
 
-    // restore original handler on unmount
     return () => {
       console.error = originalError;
     };
@@ -61,7 +59,6 @@ const GenerateProgramPage = () => {
     }
   }, [callEnded, router]);
 
-  // setup event listeners for vapi
   useEffect(() => {
     const handleCallStart = () => {
       console.log("Call started");
@@ -108,7 +105,6 @@ const GenerateProgramPage = () => {
       .on("message", handleMessage)
       .on("error", handleError);
 
-    // cleanup event listeners on unmount
     return () => {
       vapi
         .off("call-start", handleCallStart)
@@ -159,7 +155,6 @@ const GenerateProgramPage = () => {
           </p>
         </div>
 
-        {/* VIDEO CALL AREA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* AI ASSISTANT CARD */}
           <Card className="bg-card/90 backdrop-blur-sm border border-border overflow-hidden relative">
@@ -242,7 +237,7 @@ const GenerateProgramPage = () => {
                 <img
                   src={user?.imageUrl}
                   alt="User"
-                  // ADD THIS "size-full" class to make it rounded on all images
+                 
                   className="size-full object-cover rounded-full"
                 />
               </div>
